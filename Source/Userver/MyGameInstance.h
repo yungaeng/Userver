@@ -1,4 +1,4 @@
-//// Fill out your copyright notice in the Description page of Project Settings.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -13,5 +13,17 @@ UCLASS()
 class USERVER_API UMyGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
-	
+
+	UFUNCTION(BlueprintCallable)
+	void ConnectToServer();
+
+	UFUNCTION(BlueprintCallable)
+	void DisconnectToServer();
+
+public:
+	// GameServer
+	class FSocket* Socket;
+	FString IPAddr = TEXT("127.0.0.1");
+	int16 Port = 9000;
+	TSharedPtr<class PacketSession> GameServerSession;
 };
