@@ -20,6 +20,16 @@ class USERVER_API UMyGameInstance : public UGameInstance
 	UFUNCTION(BlueprintCallable)
 	void DisconnectToServer();
 
+private:
+	UFUNCTION(BlueprintCallable)
+	void SendLogin();
+
+	UFUNCTION(BlueprintCallable)
+	void SendCreateSession();
+
+	UFUNCTION(BlueprintCallable)
+	void SendJoinSession();
+
 public:
 	// GameServer
 	class FSocket* Socket;
