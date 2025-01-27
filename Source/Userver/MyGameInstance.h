@@ -30,10 +30,15 @@ private:
 	UFUNCTION(BlueprintCallable)
 	void SendJoinSession();
 
+	UFUNCTION(BlueprintCallable)
+	void SendLeaveSession();
+
 public:
 	// GameServer
 	class FSocket* Socket;
 	FString IPAddr = TEXT("127.0.0.1");
 	int16 Port = 9000;
+	int id;
+	bool connecting;
 	TSharedPtr<class PacketSession> GameServerSession;
 };

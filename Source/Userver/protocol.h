@@ -13,15 +13,17 @@ constexpr char CS_MOVING = 1;
 
 constexpr char CS_CREATE = 2;
 constexpr char CS_JOIN = 3;
+constexpr char CS_QUIT = 4;
 
 // 서버가 클라에게 (클라에서 처리)
-constexpr char SC_LOGIN_OK = 4;
-constexpr char SC_ENTER = 5;
-constexpr char SC_MOVE = 6;
-constexpr char SC_LEAVE = 7;
+constexpr char SC_LOGIN_OK = 5;
+constexpr char SC_ENTER = 6;
+constexpr char SC_MOVE = 7;
+constexpr char SC_LEAVE = 8;
 
-constexpr char SC_CREATE = 8;
-constexpr char SC_JOIN = 9;
+constexpr char SC_CREATE = 9;
+constexpr char SC_JOIN = 10;
+constexpr char SC_QUIT = 11;
 
 #pragma pack(push, 1)
 
@@ -101,4 +103,17 @@ struct SC_JOINSESSION_PACKET
     short id;
 };
 
+struct CS_QUITSESSION_PACKET
+{
+    unsigned char size;
+    char type;
+    short id;
+};
+
+struct SC_QUITSESSION_PACKET
+{
+    unsigned char size;
+    char type;
+    short id;
+};
 #pragma pack(pop)
